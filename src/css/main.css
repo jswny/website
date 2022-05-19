@@ -1,0 +1,29 @@
+body {
+  font-family: monospace;
+  background-color: black;
+  font-size: 2rem;
+}
+
+ol {
+  padding-left: 1rem;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: grey;
+}
+
+button {
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  background: white;
+  border: none;
+}
+
+button:active {
+  color: black;
+}

@@ -1,0 +1,53 @@
+.output-markdown {
+  font-size: 1rem;
+}
+
+.output-additional-link {
+  margin: 1rem 0 1rem 0;
+}
+
+.output-boxed {
+  border: 2px solid white;
+  padding: 0 1rem 0 1rem;
+  margin: 1rem 0 1rem 0;
+}
+
+.output-markdown.output-boxed {
+  padding: 1rem 5rem 1rem 5rem;
+}
+
+/* Phones */
+@media only screen and (max-width: 767px) {
+  .output-markdown img {
+    max-width: 100%;
+  }
+
+  .output-markdown.output-boxed {
+    padding: 0 1.25rem 0 1.25rem;
+  }
+}
+
+/* .output-markdown img {
+  background: white;
+} */
+
+/* Align badges etc. within headers for Markdown */
+.output-markdown h1 > img,
+.output-markdown h2 > img,
+.output-markdown h3 > img,
+.output-markdown h4 > img,
+.output-markdown h5 > img,
+.output-markdown h6 > img {
+  vertical-align: middle;
+}
+
+.output-gist-comments-comment {
+  margin: 1rem 0 0 0;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+}
+
+/* Only apply to inline code */
+:not(pre) > code {
+  background: rgb(68, 68, 68);
+  padding: 0 0.3rem 0 0.3rem;
+}

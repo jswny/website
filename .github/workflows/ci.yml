@@ -1,0 +1,44 @@
+name: CI
+on: [push]
+
+jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: yarn install
+      - run: yarn build:localFileManifest
+      - run: yarn lint
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: yarn install
+      - run: yarn format:check
+  github-pages:
+    name: GitHub Pages
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.ref, 'refs/tags') }}
+    needs: [eslint, prettier]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+      - run: yarn install
+      - run: yarn build:localFileManifest
+      - run: yarn build:prod
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3.6.4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          cname: j1.io

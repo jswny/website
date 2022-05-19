@@ -1,0 +1,8 @@
+.terminal-prompt {
+  color: grey;
+}
+
+.terminal-output {
+  color: white;
+  word-wrap: break-word;
+}
